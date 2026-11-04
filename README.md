@@ -2,8 +2,17 @@
 
 ## AUTÓMATAS Y COMPILADORES
 
-Proyecto académico sobre las tablas de símbolos
-y su funcionamiento dentro de los compiladores.
+## Integrantes
+
+| Nombre |
+|--------|
+| Pineda Flores Javier Alejandro |
+| Ortiz Salinas Samuel |
+| Orozco Domínguez Axel Antonio |
+
+## Profesor
+
+Dr. Eduardo Cornejo Velázquez
 
 ---
 
@@ -464,4 +473,4 @@ java -jar Practica.jar
 - Louden, K. C. (2004).
   *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
   International Thomson Editores.
-  [Registro del libro](https://catalogosiidca.csuca.org/Record/UP.101395?lng=en)
+  [Registro del libro](https://catalogosiidca.csuca.org/Record/UP.101395?lng=en)
