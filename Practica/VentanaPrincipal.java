@@ -1,4 +1,4 @@
-package Practica_sencilla;
+package Practica;
 
 import java.awt.*;
 import java.util.HashSet;
@@ -8,8 +8,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-import Practica_sencilla.Programas.Paso;
-import Practica_sencilla.Programas.Resultado;
+import Practica.Programas.Paso;
+import Practica.Programas.Resultado;
 
 /**
  * Interfaz grafica (Swing). Solo dibuja y reacciona a los botones;

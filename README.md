@@ -384,21 +384,21 @@ desde la raíz del repositorio.
 **Linux**
 
 ```bash
-javac -encoding UTF-8 -d out Practica_sencilla/*.java
-java -cp out Practica_sencilla.Main
+javac -encoding UTF-8 -d out Practica/*.java
+java -cp out Practica.Main
 ```
 
 **Windows (PowerShell o CMD)**
 
 ```bat
-javac -encoding UTF-8 -d out Practica_sencilla\*.java
-java -cp out Practica_sencilla.Main
+javac -encoding UTF-8 -d out Practica\*.java
+java -cp out Practica.Main
 ```
 
 **Opcional: generar un `.jar`** (Linux y Windows)
 
 ```bash
-jar cfe Practica.jar Practica_sencilla.Main -C out .
+jar cfe Practica.jar Practica.Main -C out .
 java -jar Practica.jar
 ```
 

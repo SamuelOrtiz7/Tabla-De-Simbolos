@@ -1,4 +1,4 @@
-package Practica_sencilla;
+package Practica;
 
 import javax.swing.SwingUtilities;
 
@@ -6,7 +6,7 @@ import javax.swing.SwingUtilities;
  * Practica: Tabla de simbolos
  * Materia: Automatas y Compiladores
  *
- * Ejecutar:  java -cp out Practica_sencilla.Main
+ * Ejecutar:  java -cp out Practica.Main
  */
 public class Main {
 

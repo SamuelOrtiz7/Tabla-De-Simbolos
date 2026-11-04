@@ -1,4 +1,4 @@
-package Practica_sencilla;
+package Practica;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

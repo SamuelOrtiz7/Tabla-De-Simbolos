@@ -1,4 +1,4 @@
-package Practica_sencilla;
+package Practica;
 
 public class Simbolo {
 
