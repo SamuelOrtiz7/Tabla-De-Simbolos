@@ -1,13 +1,13 @@
 package Practica_sencilla;
 
-public class simbolo {
+public class Simbolo {
 
     String nombre;
     String tipo;
     String categoria;
     int nivel;
 
-    public simbolo(String nombre, String tipo, String categoria, int nivel) {
+    public Simbolo(String nombre, String tipo, String categoria, int nivel) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.categoria = categoria;

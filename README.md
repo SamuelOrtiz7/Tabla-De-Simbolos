@@ -373,6 +373,34 @@ International Thomson Editores.</span>
 *Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
 Universidad de Málaga.</span>
 
+## <span style="color:#00897B">Compilar y ejecutar</span>
+
+Requiere un **JDK 17 o superior**. Los comandos se ejecutan
+desde la raíz del repositorio.
+
+**Linux**
+
+```bash
+javac -encoding UTF-8 -d out Practica_sencilla/*.java Practica_sencilla/gui/*.java
+java -cp out Practica_sencilla.gui.Main    # interfaz gráfica
+java -cp out Practica_sencilla.Main        # consola
+```
+
+**Windows (PowerShell o CMD)**
+
+```bat
+javac -encoding UTF-8 -d out Practica_sencilla\*.java Practica_sencilla\gui\*.java
+java -cp out Practica_sencilla.gui.Main
+java -cp out Practica_sencilla.Main
+```
+
+**Opcional: generar un `.jar`** (Linux y Windows)
+
+```bash
+jar cfe Practica.jar Practica_sencilla.gui.Main -C out .
+java -jar Practica.jar
+```
+
 ---
 
 # <span style="color:#1E88E5">8. Conclusiones</span>

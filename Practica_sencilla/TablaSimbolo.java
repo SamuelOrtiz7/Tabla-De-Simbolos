@@ -3,12 +3,12 @@ package Practica_sencilla;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class tablasimbolo {
+public class TablaSimbolo {
 
     // Una tabla hash por cada ambito. La ultima de la lista es el ambito actual.
-    private ArrayList<HashMap<String, simbolo>> ambitos = new ArrayList<>();
+    private ArrayList<HashMap<String, Simbolo>> ambitos = new ArrayList<>();
 
-    public tablasimbolo() {
+    public TablaSimbolo() {
         entrarAmbito(); // ambito global (nivel 0)
     }
 
@@ -21,17 +21,17 @@ public class tablasimbolo {
     }
 
     public void insertar(String nombre, String tipo, String categoria) {
-        HashMap<String, simbolo> actual = ambitos.get(ambitos.size() - 1);
+        HashMap<String, Simbolo> actual = ambitos.get(ambitos.size() - 1);
 
         if (actual.containsKey(nombre)) {
             System.out.println("ERROR: '" + nombre + "' ya fue declarado en este ambito");
             return;
         }
-        actual.put(nombre, new simbolo(nombre, tipo, categoria, ambitos.size() - 1));
+        actual.put(nombre, new Simbolo(nombre, tipo, categoria, ambitos.size() - 1));
         System.out.println("Insertado: " + nombre);
     }
 
-    public simbolo buscar(String nombre) {
+    public Simbolo buscar(String nombre) {
         // Busca del ambito actual hacia el global
         for (int i = ambitos.size() - 1; i >= 0; i--) {
             if (ambitos.get(i).containsKey(nombre)) {
@@ -46,7 +46,7 @@ public class tablasimbolo {
         System.out.println("\nNOMBRE   TIPO     CATEGORIA  NIVEL");
         System.out.println("----------------------------------");
         for (int i = ambitos.size() - 1; i >= 0; i--) {
-            for (simbolo s : ambitos.get(i).values()) {
+            for (Simbolo s : ambitos.get(i).values()) {
                 System.out.println(s);
             }
         }

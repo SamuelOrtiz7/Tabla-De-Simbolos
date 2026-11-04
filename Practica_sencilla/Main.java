@@ -1,10 +1,10 @@
 package Practica_sencilla;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
 
-        tablasimbolo tabla = new tablasimbolo();
+        TablaSimbolo tabla = new TablaSimbolo();
 
         System.out.println("=== TABLA DE SIMBOLOS ===\n");
 
@@ -23,7 +23,7 @@ public class main {
         tabla.mostrar();
 
         // x = a + b;
-        simbolo x = tabla.buscar("x");
+        Simbolo x = tabla.buscar("x");
         System.out.println("Buscar x -> tipo " + x.tipo + ", nivel " + x.nivel);
 
         // Errores
