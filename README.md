@@ -62,6 +62,10 @@ International Thomson Editores.</span>
 
 ---
 
+<p align="center">
+  <img src="Practica_sencilla/img.png" alt="La tabla de símbolos está presente en todas las fases del compilador" width="300">
+</p>
+
 ## <span style="color:#00897B">Herramientas generadoras</span>
 
 Herramientas como Lex/Yacc, JFlex/Cup o JavaCC
