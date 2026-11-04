@@ -63,8 +63,12 @@ International Thomson Editores.</span>
 ---
 
 <p align="center">
-  <img src="Practica_sencilla/img.png" alt="La tabla de símbolos está presente en todas las fases del compilador" width="300">
+  <img src="img/flujo_compilador.png" alt="La tabla de símbolos está presente en todas las fases del compilador" width="300">
 </p>
+
+<span style="color:#757575">**Fuente:** Usuario Perú. (22 de julio de 2019).
+*Cómo funciona un compilador*.
+https://usuarioperu.com/2019/07/22/como-funciona-un-compilador/</span>
 
 ## <span style="color:#00897B">Herramientas generadoras</span>
 
@@ -218,6 +222,13 @@ International Thomson Editores.</span>
 
 La nueva declaración se inserta al inicio de la lista,
 así la búsqueda encuentra primero la más interna.
+
+<p align="center">
+  <img src="img/tabla_hash.png" alt="Tabla hash con encadenamiento: cada cubeta apunta a una lista enlazada" width="450">
+</p>
+
+<span style="color:#757575">**Fuente:** *Hash table representation for separate chaining* [Figura]. ResearchGate.
+https://www.researchgate.net/figure/Hash-table-representation-for-separate-chaining_fig2_284454241</span>
 
 <span style="color:#757575">**Fuente:** Louden, K. C. (2004).
 *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
