@@ -1,13 +1,13 @@
-# <span style="color:#1E88E5">TABLA DE SÍMBOLOS</span>
+# TABLA DE SÍMBOLOS
 
-## <span style="color:#00897B">AUTÓMATAS Y COMPILADORES</span>
+## AUTÓMATAS Y COMPILADORES
 
 Proyecto académico sobre las tablas de símbolos
 y su funcionamiento dentro de los compiladores.
 
 ---
 
-## <span style="color:#00897B">Contenido</span>
+## Contenido
 
 1. Introducción
 2. Definición
@@ -21,9 +21,9 @@ y su funcionamiento dentro de los compiladores.
 
 ---
 
-# <span style="color:#1E88E5">1. Introducción</span>
+# 1. Introducción
 
-La **<span style="color:#F57C00">tabla de símbolos</span>** es una estructura de datos
+La **tabla de símbolos** es una estructura de datos
 utilizada durante el proceso de compilación.
 
 Un compilador traduce un programa fuente a otro lenguaje
@@ -40,25 +40,25 @@ En todas estas fases el compilador necesita recordar
 qué nombres aparecen en el programa y qué significan.
 Esa información se guarda en la tabla de símbolos.
 
-<span style="color:#757575">**Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
-*Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
-Pearson Educación.</span>
+> **Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
+> *Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
+> Pearson Educación.
 
 ---
 
-## <span style="color:#00897B">Relación con los autómatas</span>
+## Relación con los autómatas
 
-El analizador léxico se construye con **<span style="color:#F57C00">autómatas finitos</span>**.
+El analizador léxico se construye con **autómatas finitos**.
 El autómata reconoce que `contador` es un identificador válido,
 pero no recuerda si ya se declaró ni de qué tipo es.
 
 Esa información se guarda en la tabla de símbolos,
-que funciona como **<span style="color:#F57C00">puente</span>** entre el análisis léxico
+que funciona como **puente** entre el análisis léxico
 y el análisis semántico.
 
-<span style="color:#757575">**Fuente:** Louden, K. C. (2004).
-*Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
-International Thomson Editores.</span>
+> **Fuente:** Louden, K. C. (2004).
+> *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
+> International Thomson Editores.
 
 ---
 
@@ -66,49 +66,49 @@ International Thomson Editores.</span>
   <img src="img/flujo_compilador.png" alt="La tabla de símbolos está presente en todas las fases del compilador" width="300">
 </p>
 
-<span style="color:#757575">**Fuente:** Usuario Perú. (22 de julio de 2019).
-*Cómo funciona un compilador*.
-https://usuarioperu.com/2019/07/22/como-funciona-un-compilador/</span>
+> **Fuente:** Usuario Perú. (22 de julio de 2019).
+> *Cómo funciona un compilador*.
+> https://usuarioperu.com/2019/07/22/como-funciona-un-compilador/
 
-## <span style="color:#00897B">Herramientas generadoras</span>
+## Herramientas generadoras
 
 Herramientas como Lex/Yacc, JFlex/Cup o JavaCC
 generan el analizador léxico y el sintáctico,
-pero **<span style="color:#F57C00">no generan la tabla de símbolos</span>**.
+pero **no generan la tabla de símbolos**.
 
 El programador debe implementarla y usarla
 desde las acciones semánticas.
 
-<span style="color:#757575">**Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
-*Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
-Universidad de Málaga.</span>
+> **Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
+> *Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
+> Universidad de Málaga.
 
 ---
 
-# <span style="color:#1E88E5">2. Definición</span>
+# 2. Definición
 
-La tabla de símbolos es una **<span style="color:#F57C00">estructura de datos</span>**
+La tabla de símbolos es una **estructura de datos**
 que guarda información sobre los identificadores
 del programa fuente.
 
 Cada entrada relaciona un nombre con sus atributos:
 
-- **<span style="color:#F57C00">Nombre:</span>** el lexema, por ejemplo `suma`
-- **<span style="color:#F57C00">Categoría:</span>** variable, constante, función o parámetro
-- **<span style="color:#F57C00">Tipo:</span>** `int`, `float`, `boolean`, etc.
-- **<span style="color:#F57C00">Ámbito:</span>** global, local o de bloque
-- **<span style="color:#F57C00">Dirección:</span>** posición o desplazamiento en memoria
-- **<span style="color:#F57C00">Parámetros:</span>** número y tipo, si es una función
+- **Nombre:** el lexema, por ejemplo `suma`
+- **Categoría:** variable, constante, función o parámetro
+- **Tipo:** `int`, `float`, `boolean`, etc.
+- **Ámbito:** global, local o de bloque
+- **Dirección:** posición o desplazamiento en memoria
+- **Parámetros:** número y tipo, si es una función
 
-<span style="color:#757575">**Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
-*Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
-Pearson Educación.</span>
+> **Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
+> *Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
+> Pearson Educación.
 
 ---
 
-## <span style="color:#00897B">La tabla como diccionario</span>
+## La tabla como diccionario
 
-La tabla de símbolos funciona como un **<span style="color:#F57C00">diccionario</span>**:
+La tabla de símbolos funciona como un **diccionario**:
 
 - La palabra que se busca es el nombre del identificador.
 - La definición son sus atributos.
@@ -119,105 +119,105 @@ Ejemplo:
 - `x` → variable, `int`, global
 - `suma` → función, recibe `(int, int)` y devuelve `float`
 
-<span style="color:#757575">**Fuente:** Louden, K. C. (2004).
-*Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
-International Thomson Editores.</span>
+> **Fuente:** Louden, K. C. (2004).
+> *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
+> International Thomson Editores.
 
 ---
 
-# <span style="color:#1E88E5">3. Características</span>
+# 3. Características
 
-## <span style="color:#00897B">Es compartida por todas las fases</span>
+## Es compartida por todas las fases
 
-- El analizador léxico o sintáctico **<span style="color:#F57C00">crea</span>** las entradas.
-- El analizador semántico **<span style="color:#F57C00">agrega y verifica</span>** los tipos.
-- El generador de código **<span style="color:#F57C00">consulta</span>** direcciones y tamaños.
+- El analizador léxico o sintáctico **crea** las entradas.
+- El analizador semántico **agrega y verifica** los tipos.
+- El generador de código **consulta** direcciones y tamaños.
 
-<span style="color:#757575">**Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
-*Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
-Pearson Educación.</span>
+> **Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
+> *Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
+> Pearson Educación.
 
-## <span style="color:#00897B">Es eficiente y dinámica</span>
+## Es eficiente y dinámica
 
 - Se consulta cada vez que aparece un identificador,
-  por eso debe ser **<span style="color:#F57C00">rápida</span>**.
-- **<span style="color:#F57C00">Crece</span>** conforme aparecen declaraciones.
-- Al salir de un bloque se **<span style="color:#F57C00">borran</span>** las variables locales.
+  por eso debe ser **rápida**.
+- **Crece** conforme aparecen declaraciones.
+- Al salir de un bloque se **borran** las variables locales.
 
-<span style="color:#757575">**Fuente:** Louden, K. C. (2004).
-*Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
-International Thomson Editores.</span>
+> **Fuente:** Louden, K. C. (2004).
+> *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
+> International Thomson Editores.
 
-## <span style="color:#00897B">Depende del lenguaje</span>
+## Depende del lenguaje
 
 Los atributos que se guardan cambian según
 lo que el lenguaje necesite verificar y traducir.
 
-<span style="color:#757575">**Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
-*Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
-Universidad de Málaga.</span>
+> **Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
+> *Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
+> Universidad de Málaga.
 
 ---
 
-# <span style="color:#1E88E5">4. Operaciones</span>
+# 4. Operaciones
 
-## <span style="color:#00897B">Operaciones básicas</span>
+## Operaciones básicas
 
-- **<span style="color:#F57C00">Insertar:</span>** agrega un nombre con sus atributos.
+- **Insertar:** agrega un nombre con sus atributos.
   Se usa al encontrar una declaración como `int x;`
-- **<span style="color:#F57C00">Buscar:</span>** devuelve los atributos de un nombre
+- **Buscar:** devuelve los atributos de un nombre
   o indica que no existe. Se usa en cada uso, como `x = 5;`
-- **<span style="color:#F57C00">Eliminar:</span>** quita los nombres que dejan de ser visibles.
+- **Eliminar:** quita los nombres que dejan de ser visibles.
   Se usa al terminar un bloque o una función.
 
 Antes de insertar, el compilador busca en el ámbito actual
 para detectar si la variable ya fue declarada.
 
-<span style="color:#757575">**Fuente:** Louden, K. C. (2004).
-*Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
-International Thomson Editores.</span>
+> **Fuente:** Louden, K. C. (2004).
+> *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
+> International Thomson Editores.
 
-## <span style="color:#00897B">Operaciones de ámbito</span>
+## Operaciones de ámbito
 
-- **<span style="color:#F57C00">Entrar a un ámbito:</span>** se abre un nuevo nivel en la tabla.
-- **<span style="color:#F57C00">Salir de un ámbito:</span>** se borran las declaraciones locales
+- **Entrar a un ámbito:** se abre un nuevo nivel en la tabla.
+- **Salir de un ámbito:** se borran las declaraciones locales
   y se regresa al nivel anterior.
 
-<span style="color:#757575">**Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
-*Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
-Pearson Educación.</span>
+> **Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
+> *Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
+> Pearson Educación.
 
-## <span style="color:#00897B">Actualizar atributos</span>
+## Actualizar atributos
 
 El analizador léxico puede guardar solo el nombre
-y después el analizador semántico **<span style="color:#F57C00">completa</span>**
+y después el analizador semántico **completa**
 el tipo y la dirección.
 
-<span style="color:#757575">**Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
-*Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
-Universidad de Málaga.</span>
+> **Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
+> *Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
+> Universidad de Málaga.
 
 ---
 
-# <span style="color:#1E88E5">5. Estructuras de datos</span>
+# 5. Estructuras de datos
 
-## <span style="color:#00897B">Opciones de implementación</span>
+## Opciones de implementación
 
-- **<span style="color:#F57C00">Lista lineal:</span>** búsqueda O(n).
+- **Lista lineal:** búsqueda O(n).
   Fácil de programar, pero lenta con muchos nombres.
-- **<span style="color:#F57C00">Árbol binario de búsqueda:</span>** búsqueda O(log n).
+- **Árbol binario de búsqueda:** búsqueda O(log n).
   Mantiene los nombres ordenados, pero puede desbalancearse.
-- **<span style="color:#F57C00">Tabla hash:</span>** búsqueda O(1) en promedio.
+- **Tabla hash:** búsqueda O(1) en promedio.
   Es la más rápida y la más usada en compiladores.
 
-<span style="color:#757575">**Fuente:** Louden, K. C. (2004).
-*Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
-International Thomson Editores.</span>
+> **Fuente:** Louden, K. C. (2004).
+> *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
+> International Thomson Editores.
 
-## <span style="color:#00897B">Tabla hash con encadenamiento</span>
+## Tabla hash con encadenamiento
 
-- Una **<span style="color:#F57C00">función hash</span>** convierte el nombre en una posición.
-- Cada posición (**<span style="color:#F57C00">cubeta</span>**) apunta a una lista de entradas.
+- Una **función hash** convierte el nombre en una posición.
+- Cada posición (**cubeta**) apunta a una lista de entradas.
 - Si dos nombres caen en la misma cubeta, se encadenan.
 
 La nueva declaración se inserta al inicio de la lista,
@@ -227,67 +227,68 @@ así la búsqueda encuentra primero la más interna.
   <img src="img/tabla_hash.png" alt="Tabla hash con encadenamiento: cada cubeta apunta a una lista enlazada" width="450">
 </p>
 
-<span style="color:#757575">**Fuente:** *Hash table representation for separate chaining* [Figura]. ResearchGate.
-https://www.researchgate.net/figure/Hash-table-representation-for-separate-chaining_fig2_284454241</span>
+> **Fuente:** *Hash table representation for separate chaining* [Figura]. ResearchGate.
+> https://www.researchgate.net/figure/Hash-table-representation-for-separate-chaining_fig2_284454241
 
-<span style="color:#757575">**Fuente:** Louden, K. C. (2004).
-*Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
-International Thomson Editores.</span>
+> **Fuente:** Louden, K. C. (2004).
+> *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
+> International Thomson Editores.
 
-## <span style="color:#00897B">Una tabla por ámbito</span>
+## Una tabla por ámbito
 
 Cada ámbito tiene su propia tabla, enlazada
 con la tabla del ámbito que la contiene.
-La búsqueda va del ámbito actual **<span style="color:#F57C00">hacia afuera</span>**.
+La búsqueda va del ámbito actual **hacia afuera**.
 
-<span style="color:#757575">**Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
-*Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
-Pearson Educación.</span>
+> **Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
+> *Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
+> Pearson Educación.
 
 En Java esto se implementa con `HashMap` o `Hashtable`.
 
-<span style="color:#757575">**Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
-*Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
-Universidad de Málaga.</span>
+> **Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
+> *Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
+> Universidad de Málaga.
 
 ---
 
-# <span style="color:#1E88E5">6. Ámbitos</span>
+# 6. Ámbitos
 
-## <span style="color:#00897B">Definición de ámbito</span>
+## Definición de ámbito
 
-El **<span style="color:#F57C00">ámbito</span>** es la parte del programa
+El **ámbito** es la parte del programa
 donde una declaración es visible.
 
 La tabla de símbolos aplica las reglas de ámbito
 para relacionar cada uso de un nombre
 con su declaración correcta.
 
-<span style="color:#757575">**Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
-*Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
-Pearson Educación.</span>
+> **Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
+> *Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
+> Pearson Educación.
 
-## <span style="color:#00897B">Tipos de ámbito</span>
+## Tipos de ámbito
 
-- **<span style="color:#F57C00">Estático:</span>** se decide por cómo está escrito el programa.
+- **Estático:** se decide por cómo está escrito el programa.
   Lo usan C, Java y Pascal.
-- **<span style="color:#F57C00">Dinámico:</span>** depende del orden de las llamadas
+- **Dinámico:** depende del orden de las llamadas
   en tiempo de ejecución.
 
 Niveles típicos:
 
-- **<span style="color:#F57C00">Global:</span>** todo el programa
-- **<span style="color:#F57C00">De función:</span>** parámetros y variables locales
-- **<span style="color:#F57C00">De bloque:</span>** lo que está entre llaves
+- **Global:** todo el programa
+- **De función:** parámetros y variables locales
+- **De bloque:** lo que está entre llaves
 
-<span style="color:#757575">**Fuente:** Louden, K. C. (2004).
-*Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
-International Thomson Editores.</span>
+> **Fuente:** Louden, K. C. (2004).
+> *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
+> International Thomson Editores.
 
-## <span style="color:#00897B">Regla del anidamiento más cercano</span>
+## Regla del anidamiento más cercano
 
-Si un nombre se declara en varios bloques,
-gana la declaración del **<span style="color:#F57C00">bloque más interno</span>**.
+> [!IMPORTANT]
+> Si un nombre se declara en varios bloques,
+> gana la declaración del **bloque más interno**.
 
 - `int x = 1;` → x global
 - `void f() {`
@@ -295,15 +296,15 @@ gana la declaración del **<span style="color:#F57C00">bloque más interno</span
 - `printf("%d", x);` → imprime 2
 - `}`
 
-<span style="color:#757575">**Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
-*Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
-Pearson Educación.</span>
+> **Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
+> *Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
+> Pearson Educación.
 
 ---
 
-# <span style="color:#1E88E5">7. Caso práctico</span>
+# 7. Caso práctico
 
-## <span style="color:#00897B">Programa a analizar</span>
+## Programa a analizar
 
 - `int x;` → nivel 0 (global)
 - `float suma(int a, int b) {` → nivel 1 (función)
@@ -316,11 +317,11 @@ Pearson Educación.</span>
 - `return x;`
 - `}`
 
-<span style="color:#757575">**Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
-*Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
-Pearson Educación.</span>
+> **Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
+> *Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
+> Pearson Educación.
 
-## <span style="color:#00897B">Paso a paso</span>
+## Paso a paso
 
 1. `int x;` → inserta `x` (int) en el nivel global.
 2. `float suma(int a, int b)` → inserta `suma`,
@@ -334,11 +335,11 @@ Pearson Educación.</span>
 6. `return x;` → encuentra la `x` de tipo `float`.
 7. Fin de la función → elimina el nivel 1.
 
-<span style="color:#757575">**Fuente:** Louden, K. C. (2004).
-*Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
-International Thomson Editores.</span>
+> **Fuente:** Louden, K. C. (2004).
+> *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
+> International Thomson Editores.
 
-## <span style="color:#00897B">Contenido de la tabla en el bloque interno</span>
+## Contenido de la tabla en el bloque interno
 
 - `i` → variable local, `int`, nivel 2
 - `a` → parámetro, `int`, nivel 1
@@ -347,20 +348,22 @@ International Thomson Editores.</span>
 - `x` → variable global, `int`, nivel 0
 - `suma` → función `(int, int)` → `float`, nivel 0
 
-<span style="color:#757575">**Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
-*Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
-Pearson Educación.</span>
+> **Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
+> *Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
+> Pearson Educación.
 
-## <span style="color:#00897B">Errores que detecta</span>
+## Errores que detecta
 
-- **<span style="color:#E53935">No declarada:</span>** usar `i` fuera de su bloque.
-- **<span style="color:#E53935">Redeclarada:</span>** escribir `int a;` dentro de `suma`.
+> [!WARNING]
+> **No declarada:** usar `i` fuera de su bloque.
+>
+> **Redeclarada:** escribir `int a;` dentro de `suma`.
 
-<span style="color:#757575">**Fuente:** Louden, K. C. (2004).
-*Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
-International Thomson Editores.</span>
+> **Fuente:** Louden, K. C. (2004).
+> *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
+> International Thomson Editores.
 
-## <span style="color:#00897B">Implementación en Java</span>
+## Implementación en Java
 
 - `Simbolo` → clase con `nombre`, `categoria` y `tipo`
 - `Deque<HashMap<String, Simbolo>>` → pila de ámbitos
@@ -369,11 +372,11 @@ International Thomson Editores.</span>
 - `insertar()` → revisa redeclaración y hace `put`
 - `buscar()` → recorre del nivel interno al global
 
-<span style="color:#757575">**Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
-*Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
-Universidad de Málaga.</span>
+> **Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
+> *Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
+> Universidad de Málaga.
 
-## <span style="color:#00897B">Compilar y ejecutar</span>
+## Compilar y ejecutar
 
 Requiere un **JDK 17 o superior**. Los comandos se ejecutan
 desde la raíz del repositorio.
@@ -403,31 +406,31 @@ java -jar Practica.jar
 
 ---
 
-# <span style="color:#1E88E5">8. Conclusiones</span>
+# 8. Conclusiones
 
-- La tabla de símbolos **<span style="color:#F57C00">une todas las fases</span>** del compilador.
-- Sus operaciones principales son **<span style="color:#F57C00">insertar, buscar y eliminar</span>**.
-- La **<span style="color:#F57C00">tabla hash</span>** es la estructura más eficiente.
-- Permite detectar variables **<span style="color:#E53935">no declaradas</span>** o **<span style="color:#E53935">redeclaradas</span>**.
+- La tabla de símbolos **une todas las fases** del compilador.
+- Sus operaciones principales son **insertar, buscar y eliminar**.
+- La **tabla hash** es la estructura más eficiente.
+- Permite detectar variables **no declaradas** o **redeclaradas**.
 
-<span style="color:#757575">**Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
-*Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
-Pearson Educación.</span>
+> **Fuente:** Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
+> *Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
+> Pearson Educación.
 
-<span style="color:#757575">**Fuente:** Louden, K. C. (2004).
-*Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
-International Thomson Editores.</span>
+> **Fuente:** Louden, K. C. (2004).
+> *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
+> International Thomson Editores.
 
 - Con JFlex/Cup o JavaCC la tabla se programa a mano,
-  por eso entenderla es **<span style="color:#F57C00">necesario</span>** para construir un compilador.
+  por eso entenderla es **necesario** para construir un compilador.
 
-<span style="color:#757575">**Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
-*Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
-Universidad de Málaga.</span>
+> **Fuente:** Gálvez Rojas, S. y Mora Mata, M. Á. (2005).
+> *Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
+> Universidad de Málaga.
 
 ---
 
-# <span style="color:#1E88E5">9. Bibliografía</span>
+# 9. Bibliografía
 
 - Aho, A. V., Lam, M. S., Sethi, R. y Ullman, J. D. (2008).
   *Compiladores: principios, técnicas y herramientas* (2.ª ed.; A. Vidal Romero Elizondo, Trad.).
@@ -442,4 +445,4 @@ Universidad de Málaga.</span>
 - Louden, K. C. (2004).
   *Construcción de compiladores: principios y práctica* (E. Alatorre Miguel, Trad.).
   International Thomson Editores.
-  [Registro del libro](https://catalogosiidca.csuca.org/Record/UP.101395?lng=en)
+  [Registro del libro](https://catalogosiidca.csuca.org/Record/UP.101395?lng=en)
