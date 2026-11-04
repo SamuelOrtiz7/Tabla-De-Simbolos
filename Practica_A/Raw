@@ -1,0 +1,82 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Simbolo {
+    String nombre;
+    String tipo;
+
+    public Simbolo(String nombre, String tipo) {
+        this.nombre = nombre;
+        this.tipo = tipo;
+    }
+}
+
+public class TablaSimbolos {
+
+    public static void main(String[] args) {
+
+        Scanner teclado = new Scanner(System.in);
+        ArrayList<Simbolo> tabla = new ArrayList<>();
+
+        int opcion;
+
+        do {
+            System.out.println("\n--- TABLA DE SIMBOLOS ---");
+            System.out.println("1. Agregar variable");
+            System.out.println("2. Mostrar tabla");
+            System.out.println("3. Salir");
+            System.out.print("Opcion: ");
+            opcion = teclado.nextInt();
+            teclado.nextLine();
+
+            switch (opcion) {
+
+                case 1:
+                    System.out.print("Nombre de la variable: ");
+                    String nombre = teclado.nextLine();
+
+                    boolean existe = false;
+
+                    for (Simbolo s : tabla) {
+                        if (s.nombre.equals(nombre)) {
+                            existe = true;
+                            break;
+                        }
+                    }
+
+                    if (existe) {
+                        System.out.println("Error: la variable ya existe.");
+                    } else {
+                        System.out.print("Tipo de dato: ");
+                        String tipo = teclado.nextLine();
+
+                        tabla.add(new Simbolo(nombre, tipo));
+
+                        System.out.println("Variable agregada correctamente.");
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("\nTABLA DE SIMBOLOS");
+                    System.out.println("--------------------------");
+
+                    for (Simbolo s : tabla) {
+                        System.out.println(
+                                "Nombre: " + s.nombre +
+                                        " | Tipo: " + s.tipo);
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Fin del programa.");
+                    break;
+
+                default:
+                    System.out.println("Opcion no valida.");
+            }
+
+        } while (opcion != 3);
+
+        teclado.close();
+    }
+}
