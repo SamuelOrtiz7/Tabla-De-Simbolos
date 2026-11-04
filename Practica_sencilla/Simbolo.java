@@ -2,20 +2,15 @@ package Practica_sencilla;
 
 public class Simbolo {
 
-    String nombre;
-    String tipo;
-    String categoria;
-    int nivel;
+    final String nombre;
+    final String tipo;
+    final String categoria;
+    final int nivel;
 
     public Simbolo(String nombre, String tipo, String categoria, int nivel) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.categoria = categoria;
         this.nivel = nivel;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%-8s %-8s %-10s %d", nombre, tipo, categoria, nivel);
     }
 }

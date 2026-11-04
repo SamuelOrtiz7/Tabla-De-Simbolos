@@ -1,7 +1,6 @@
-package Practica_sencilla.gui;
+package Practica_sencilla;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -9,115 +8,19 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
+import Practica_sencilla.Programas.Paso;
+import Practica_sencilla.Programas.Resultado;
+
 /**
- * Practica: Tabla de simbolos (interfaz grafica con Swing)
- * Materia: Automatas y Compiladores
- *
- * Ejecutar:  java -cp out Practica_sencilla.gui.Main
+ * Interfaz grafica (Swing). Solo dibuja y reacciona a los botones;
+ * la logica esta en TablaSimbolo y Programas.
  */
-public class Main {
-
-    // ---------------- Pasos del programa analizado ----------------
-
-    /** Resultado de un paso: lo que explica la interfaz y si fue un error. */
-    private static class Resultado {
-        final String texto;
-        final boolean error;
-        Resultado(String texto, boolean error) { this.texto = texto; this.error = error; }
-    }
-
-    private interface Accion { Resultado ejecutar(TablaSimbolo t); }
-
-    private static class Paso {
-        final String linea;
-        final Accion accion;
-        Paso(String linea, Accion accion) { this.linea = linea; this.accion = accion; }
-    }
-
-    private static Resultado ok(String texto) { return new Resultado(texto, false); }
-    private static Resultado error(String texto) { return new Resultado(texto, true); }
-
-    private static Accion insertar(String nombre, String tipo, String categoria) {
-        return t -> {
-            String err = t.insertar(nombre, tipo, categoria);
-            if (err != null) return error("ERROR: " + err);
-            return ok("insertar(" + nombre + "): se agrega " + nombre + " (" + tipo + ", " + categoria
-                    + ") al nivel " + t.nivelActual() + ".");
-        };
-    }
-
-    private static Accion buscar(String nombre) {
-        return t -> {
-            Simbolo s = t.buscar(nombre);
-            if (s == null) return error("ERROR: '" + nombre + "' no ha sido declarado");
-            return ok("buscar(" + nombre + "): se encuentra en el nivel " + s.nivel + " con tipo " + s.tipo + ".");
-        };
-    }
-
-    private static Accion combinar(Accion... acciones) {
-        return t -> {
-            StringBuilder sb = new StringBuilder();
-            boolean hayError = false;
-            for (Accion a : acciones) {
-                Resultado r = a.ejecutar(t);
-                if (sb.length() > 0) sb.append("<br>");
-                sb.append(r.texto);
-                hayError |= r.error;
-            }
-            return new Resultado(sb.toString(), hayError);
-        };
-    }
-
-    private static final Accion ENTRAR = t -> {
-        t.entrarAmbito();
-        return ok("entrarAmbito(): se crea una tabla nueva, ahora el nivel actual es " + t.nivelActual() + ".");
-    };
-
-    private static final Accion SALIR = t -> {
-        int nivel = t.nivelActual();
-        t.salirAmbito();
-        return ok("salirAmbito(): se elimina la tabla del nivel " + nivel + " y sus símbolos desaparecen.");
-    };
-
-    private static List<Paso> programaCorrecto() {
-        List<Paso> p = new ArrayList<>();
-        p.add(new Paso("int x;", insertar("x", "int", "variable")));
-        p.add(new Paso("float suma(int a, int b) {", combinar(
-                insertar("suma", "float", "función"), ENTRAR,
-                insertar("a", "int", "parámetro"), insertar("b", "int", "parámetro"))));
-        p.add(new Paso("    float x;", combinar(insertar("x", "float", "variable"),
-                t -> ok("Esta x oculta a la x global (nivel 0)."))));
-        p.add(new Paso("    x = a + b;", combinar(buscar("x"), buscar("a"), buscar("b"))));
-        p.add(new Paso("    {", ENTRAR));
-        p.add(new Paso("        int i;", insertar("i", "int", "variable")));
-        p.add(new Paso("        i = 0;", buscar("i")));
-        p.add(new Paso("    }", SALIR));
-        p.add(new Paso("    return x;", buscar("x")));
-        p.add(new Paso("}", SALIR));
-        return p;
-    }
-
-    private static List<Paso> programaConErrores() {
-        List<Paso> p = new ArrayList<>();
-        p.add(new Paso("int x;", insertar("x", "int", "variable")));
-        p.add(new Paso("float suma(int a, int b) {", combinar(
-                insertar("suma", "float", "función"), ENTRAR,
-                insertar("a", "int", "parámetro"), insertar("b", "int", "parámetro"))));
-        p.add(new Paso("    int a;          // error", insertar("a", "int", "variable")));
-        p.add(new Paso("    {", ENTRAR));
-        p.add(new Paso("        int i;", insertar("i", "int", "variable")));
-        p.add(new Paso("    }", SALIR));
-        p.add(new Paso("    i = 5;          // error", buscar("i")));
-        p.add(new Paso("    return x;", buscar("x")));
-        p.add(new Paso("}", SALIR));
-        return p;
-    }
-
-    // ---------------- Interfaz ----------------
+public class VentanaPrincipal {
 
     private static final Color VERDE = new Color(0x2E7D32);
     private static final Color ROJO = new Color(0xC62828);
     private static final Color GRIS = new Color(0x9E9E9E);
+    private static final Color RESALTADO = new Color(0xFFF59D);
 
     private List<Paso> pasos;
     private TablaSimbolo tabla;
@@ -137,23 +40,22 @@ public class Main {
     private final JComboBox<String> selector = new JComboBox<>(
             new String[]{"Programa correcto", "Programa con errores"});
 
-    private Main() {
+    public VentanaPrincipal() {
         JFrame ventana = new JFrame("Tabla de símbolos - Autómatas y Compiladores");
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Codigo
         listaCodigo.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
-        listaCodigo.setSelectionBackground(new Color(0xFFF59D));
-        listaCodigo.setSelectionForeground(Color.BLACK);
         listaCodigo.setFocusable(false);
         listaCodigo.setEnabled(false);
         listaCodigo.setCellRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList<?> l, Object v, int i, boolean sel, boolean foc) {
                 Component c = super.getListCellRendererComponent(l, v, i, sel, foc);
-                c.setForeground(i == siguiente - 1 ? Color.BLACK : (i < siguiente ? new Color(0x555555) : new Color(0x222222)));
+                boolean actual = i == siguiente - 1;
+                c.setForeground(actual ? Color.BLACK : (i < siguiente ? new Color(0x555555) : new Color(0x222222)));
                 setOpaque(true);
-                setBackground(i == siguiente - 1 ? new Color(0xFFF59D) : Color.WHITE);
+                setBackground(actual ? RESALTADO : Color.WHITE);
                 return c;
             }
         });
@@ -212,12 +114,11 @@ public class Main {
     }
 
     private void reiniciar() {
-        pasos = selector.getSelectedIndex() == 0 ? programaCorrecto() : programaConErrores();
+        pasos = selector.getSelectedIndex() == 0 ? Programas.correcto() : Programas.conErrores();
         tabla = new TablaSimbolo();
         siguiente = 0;
         modeloCodigo.clear();
         for (Paso p : pasos) modeloCodigo.addElement(p.linea);
-        listaCodigo.clearSelection();
         mostrarMensaje("Pulsa <b>Siguiente</b> para analizar la primera línea.", Color.DARK_GRAY);
         refrescar();
     }
@@ -250,9 +151,5 @@ public class Main {
             explicacion.setText(explicacion.getText().replace("</html>",
                     "<br><br><i>Fin del programa: solo queda el ámbito global.</i></html>"));
         }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(Main::new);
     }
 }

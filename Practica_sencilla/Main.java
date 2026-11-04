@@ -1,38 +1,16 @@
 package Practica_sencilla;
 
+import javax.swing.SwingUtilities;
+
+/**
+ * Practica: Tabla de simbolos
+ * Materia: Automatas y Compiladores
+ *
+ * Ejecutar:  java -cp out Practica_sencilla.Main
+ */
 public class Main {
 
     public static void main(String[] args) {
-
-        TablaSimbolo tabla = new TablaSimbolo();
-
-        System.out.println("=== TABLA DE SIMBOLOS ===\n");
-
-        // int x;
-        tabla.insertar("x", "int", "variable");
-
-        // float suma(int a, int b) {
-        tabla.insertar("suma", "float", "funcion");
-        tabla.entrarAmbito();
-        tabla.insertar("a", "int", "parametro");
-        tabla.insertar("b", "int", "parametro");
-
-        // float x;   (oculta a la x global)
-        tabla.insertar("x", "float", "variable");
-
-        tabla.mostrar();
-
-        // x = a + b;
-        Simbolo x = tabla.buscar("x");
-        System.out.println("Buscar x -> tipo " + x.tipo + ", nivel " + x.nivel);
-
-        // Errores
-        tabla.insertar("a", "int", "variable");   // redeclaracion
-        tabla.buscar("y");                        // no declarada
-
-        // }   fin de la funcion
-        tabla.salirAmbito();
-        System.out.println("\nDespues de salir de la funcion:");
-        tabla.mostrar();
+        SwingUtilities.invokeLater(VentanaPrincipal::new);
     }
 }
