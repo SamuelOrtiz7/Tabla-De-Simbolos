@@ -376,6 +376,21 @@ Niveles típicos:
 > *Java a tope: Traductores y compiladores con Lex/Yacc, JFlex/Cup y JavaCC* (Ed. electrónica).
 > Universidad de Málaga.
 
+## Practica_A: versión simple
+
+Versión mínima de la tabla de símbolos: una sola lista,
+sin ámbitos. El usuario escribe el nombre y el tipo de cada variable
+y el programa rechaza las repetidas.
+
+- `Simbolo` → `nombre` y `tipo`
+- `TablaSimbolos` → lógica: `ArrayList` con búsqueda lineal (`existe`, `agregar`)
+- `VentanaPrincipal` → interfaz Swing, sin lógica de la tabla
+- `Main` → arranca la ventana
+
+> [!NOTE]
+> No maneja ámbitos ni ocultamiento. Para eso está la carpeta `Practica`.
+
+
 ## Compilar y ejecutar
 
 Requiere un **JDK 17 o superior**. Los comandos se ejecutan
@@ -386,6 +401,9 @@ desde la raíz del repositorio.
 ```bash
 javac -encoding UTF-8 -d out Practica/*.java
 java -cp out Practica.Main
+
+javac -encoding UTF-8 -d out Practica_A/*.java
+java -cp out Practica_A.Main
 ```
 
 **Windows (PowerShell o CMD)**
@@ -393,6 +411,9 @@ java -cp out Practica.Main
 ```bat
 javac -encoding UTF-8 -d out Practica\*.java
 java -cp out Practica.Main
+
+javac -encoding UTF-8 -d out Practica_A\*.java
+java -cp out Practica_A.Main
 ```
 
 **Opcional: generar un `.jar`** (Linux y Windows)
